@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../cdn.ejs') %>
+    <title><%= pageTitle %></title>
+    <style>
+        img{
+            height:20px;
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../navLinks.ejs') %>
+
+    <main class="container ">
+        <% if(prods.length>0){ %>
+        <div class="card-columns ">
+            <% for(let i=0;i<prods.length;i++) {%>
+            <article class="card product-item text-center">
+                <header class="card_header  card-header">
+                <h1 class="product_title"><%= prods[i].title %></h1>
+                </header>
+
+                <div class="card_image">
+                    <img src="./images/book.png" alt='<%= prods[i].title %>''>
+                </div>
+
+                <div class="card_content card-body"> 
+                    <h2 class="product_price">$ <%= prods[i].price %></h2>
+                    <p class="product_descript"><%= prods[i].description %></p>
+                </div>
+                <div class="card_actions card-footer">
+                    <button class="btn btn-primary">Add to cart</button>
+                </div>
+
+            </article>
+            <%}%>
+        </div>
+        <%}else{%>
+                        <h1>No product found</h1>
+        <%}%>
+
+
+    </main>
+    
+</body>
+</html>
